@@ -2,8 +2,8 @@
 
 ## 📌 Project Overview
 
-This is a **Task Manager API** built using FastAPI.
-It allows users to create, read, update, and delete tasks (CRUD operations).
+This is a simple **Task Manager API** built using FastAPI.
+It allows users to perform basic CRUD operations (Create, Read, Update, Delete) on tasks.
 
 ---
 
@@ -20,10 +20,9 @@ It allows users to create, read, update, and delete tasks (CRUD operations).
 
 * Add new tasks
 * View all tasks
-* Update existing tasks
-* Delete tasks
-* Uses **unique ID** for each task
-* JSON-based request/response
+* Update tasks using index
+* Delete tasks using index
+* JSON-based request and response
 
 ---
 
@@ -39,19 +38,19 @@ task-manager-api/
 
 ### 1. Install dependencies
 
-```bash
+```bash id="o7rr41"
 pip install fastapi uvicorn
 ```
 
-### 2. Run server
+### 2. Run the server
 
-```bash
+```bash id="q38mb2"
 uvicorn main:app --reload
 ```
 
-### 3. Open in browser
+### 3. Open Swagger UI
 
-```
+```id="1nt5lh"
 http://127.0.0.1:8000/docs
 ```
 
@@ -63,13 +62,15 @@ http://127.0.0.1:8000/docs
 
 Get all tasks
 
+---
+
 ### ✅ POST /tasks
 
 Add a new task
 
 Request body:
 
-```json
+```json id="5kk22c"
 {
   "task": "Learn FastAPI"
 }
@@ -77,11 +78,13 @@ Request body:
 
 ---
 
-### ✅ PUT /tasks/{task_id}
+### ✅ PUT /tasks/{index}
 
-Update a task
+Update a task using index
 
-```json
+Example:
+
+```json id="3pdsfa"
 {
   "task": "Updated Task"
 }
@@ -89,44 +92,51 @@ Update a task
 
 ---
 
-### ✅ DELETE /tasks/{task_id}
+### ✅ DELETE /tasks/{index}
 
-Delete a task
+Delete a task using index
 
 ---
 
 ## 🧠 How it Works
 
-* Tasks are stored in a list
-* Each task has a unique ID
+* Tasks are stored in a Python list
+* Each task is accessed using its index
 * CRUD operations are handled using FastAPI routes
 
 ---
 
 ## 📌 Example Response
 
-```json
+```json id="4tqk7m"
 {
   "tasks": [
-    {
-      "id": 1,
-      "task": "Study Python"
-    }
+    "Study Python",
+    "Go to Gym",
+    "Learn FastAPI"
   ]
 }
 ```
 
 ---
 
+## ⚠️ Limitations
+
+* Uses index instead of unique ID
+* Data is temporary (resets when server restarts)
+* No database integration
+
+---
+
 ## 🚀 Future Improvements
 
-* Add database (SQLite / PostgreSQL)
+* Use unique IDs instead of index
+* Add database (SQLite/PostgreSQL)
 * Add authentication
-* Add task status (completed / pending)
 * Build frontend UI
 
 ---
 
 ## 👨‍💻 Author
 
-Biradar Mayur
+Mayur Biradar
